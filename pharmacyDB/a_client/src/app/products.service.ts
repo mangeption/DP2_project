@@ -18,6 +18,7 @@ export class ProductsService {
     return this.http.post('http://localhost:3000/api/product', newProduct, {headers:headers})
     .map(res => res.json());
   }
+  
   deleteProduct(id){
     return this.http.delete('http://localhost:3000/api/product/' + id).map(res => res.json());
   }

@@ -20,14 +20,16 @@ export class ListProductsComponent implements OnInit {
   }
   deleteProduct(id:any){
     var products = this.products;
+    //console.log(id);
     this.productsService.deleteProduct(id).subscribe(data=>{
-      if(data.n==1){
-        for(var i=0; i< products.length; i++){
-          if(products[i]._id == id){
+        for(var i=0; i< products.length; i++)
+        {
+          if(products[i].id == id)
+          {
+            console.log("true");
             products.splice(i,1);
           }
         }
-      }
     })
   }
 

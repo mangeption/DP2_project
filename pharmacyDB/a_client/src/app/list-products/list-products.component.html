@@ -1,3 +1,5 @@
+<!DOCTYPE>
+<html ng-app>
 <div class = "container">
   <table>
     <tr>
@@ -22,40 +24,12 @@
         {{product.stock}}
       </td>
       <td class = "col-md-3">
-          <input type= "button" (click) = "deleteProduct(product._id)" value ="Del" class = "btn btn-danger"/>
+          <button (click) = "deleteProduct(product.id)" class = "btn btn-danger">Del</button>
       </td>
       <td class="col-md-3">
           <input type="button" value="Edit"/>
       </td>
     </tr>
   </table>
-  <!-- <div>
-    <div class = "col-md-3">ID</div>
-    <div class = "col-md-3">NAME</div>
-    <div class = "col-md-3">PRICE</div>
-    <div class = "col-md-3">STOCK</div>
-  </div>
-  <div *ngFor = "let product of products">
-    <div class = "col-md-3">
-      {{product.id}}
-    </div>
-    <div class = "col-md-3">
-      {{product.name}}
-    </div>
-    <div class = "col-md-3">
-      {{product.price}}
-    </div>
-    <div class = "col-md-3">
-      {{product.stock}}
-    </div>
-    <div class = "col-md-3">
-      <input type= "button" (click) = "deleteProduct(product._id)" value ="Del" class = "btn btn-danger">
-    </div>
-    <div>
-      <nav>
-        <a routerLink="add-product/add-product" routerLinkActive="active">Edit</a>
-      </nav>
-      <router-outlet></router-outlet>
-    </div>
-  </div> -->
 </div>
+</html>
