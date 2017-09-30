@@ -17,3 +17,10 @@ nav a:hover{
 nav a.active{
     color: #039be5;
 }
+
+#nav_bar{
+    margin: auto;
+    width: 40%;
+    margin-bottom: 3em;
+}
+

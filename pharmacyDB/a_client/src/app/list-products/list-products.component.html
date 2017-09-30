@@ -1,5 +1,35 @@
 <div class = "container">
-  <div>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>NAME</th>
+      <th>PRICE</th>
+      <th>STOCK</th>
+      <th>DELETE</th>
+      <th>EDIT</th>
+    </tr>
+    <tr *ngFor = "let product of products">
+      <td class = "col-md-3">
+        {{product.id}}
+      </td>
+      <td class = "col-md-3">
+        {{product.name}}
+      </td>
+      <td class = "col-md-3">
+        {{product.price}}
+      </td>
+      <td class = "col-md-3">
+        {{product.stock}}
+      </td>
+      <td class = "col-md-3">
+          <input type= "button" (click) = "deleteProduct(product._id)" value ="Del" class = "btn btn-danger"/>
+      </td>
+      <td class="col-md-3">
+          <input type="button" value="Edit"/>
+      </td>
+    </tr>
+  </table>
+  <!-- <div>
     <div class = "col-md-3">ID</div>
     <div class = "col-md-3">NAME</div>
     <div class = "col-md-3">PRICE</div>
@@ -27,5 +57,5 @@
       </nav>
       <router-outlet></router-outlet>
     </div>
-  </div>
+  </div> -->
 </div>
