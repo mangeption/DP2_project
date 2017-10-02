@@ -18,7 +18,6 @@ mongoose.connection.on('error', function(err){
     if(err){
         console.log('Error in connecting to mongodb @ 27017: ' + err)
     }
-    
 });
 
 const port = 3000;
