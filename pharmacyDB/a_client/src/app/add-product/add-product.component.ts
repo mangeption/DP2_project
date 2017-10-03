@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ProductsService} from '../products.service';
 import {Products} from '../products';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-add-product',
@@ -15,7 +16,7 @@ export class AddProductComponent implements OnInit {
   name: string;
   price: number;
   stock: number;
-  constructor(private productsService: ProductsService) { }
+  constructor(private productsService: ProductsService, private location: Location) { }
 
   ngOnInit() {
   }
@@ -26,9 +27,8 @@ export class AddProductComponent implements OnInit {
       price: this.price,
       stock: this.stock
     }
-    this.productsService.addProduct(newProduct).subscribe(product => {
-      this.products.push(product);
-      this.productsService.getProducts().subscribe(products => this.products = products);
+    this.productsService.addProduct(newProduct).subscribe(() => {
+      this.location.back();
     });
   }
 
