@@ -10,8 +10,6 @@ import {Location} from '@angular/common';
   providers: [ProductsService]
 })
 export class AddProductComponent implements OnInit {
-  products: Products[];
-  product: Products;
   id: number;
   name: string;
   price: number;
