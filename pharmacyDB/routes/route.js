@@ -2,14 +2,14 @@ const express = require('express');
 const router = express.Router();
 
 const Products = require('../models/products.js');
-
+//Get all products
 router.get('/products', function(req, res, next){
     Products.find(function(err, prods){
         res.json(prods)
     });
 });
-
-router.post('/product', function(req, res, next){
+//Add new product
+router.post('/addProduct', function(req, res, next){
     let newProduct = new Products({
         id: req.body.id,
         name: req.body.name,
@@ -24,7 +24,7 @@ router.post('/product', function(req, res, next){
         }
     });
 });
-
+//Edit existed product by id
 router.put('/editProduct/:id', function(req, res, next){
     Products.findOne({id: req.params.id}, function(err, foundObject){
         if(err){
@@ -51,8 +51,8 @@ router.put('/editProduct/:id', function(req, res, next){
         }
     });
 });
-
-router.delete('/product/:id', function(req, res, next){
+// Delete product by id
+router.delete('/delProduct/:id', function(req, res, next){
     Products.remove({id: req.params.id}, function(err, result){
         if(err){
             res.json(err);
