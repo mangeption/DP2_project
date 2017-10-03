@@ -26,18 +26,24 @@ router.post('/addProduct', function(req, res, next){
 });
 //Edit existed product by id
 router.put('/editProduct/:id', function(req, res, next){
+    let updatedProduct = new Products({
+        id: req.body.id,
+        name: req.body.name,
+        price: req.body.price,
+        stock: req.body.stock
+    });
     Products.findOne({id: req.params.id}, function(err, foundObject){
         if(err){
             res.json(err);
         }else{
             if(foundObject){
-                if(req.body.name){
+                if(updatedProduct.name){
                     foundObject.name = req.body.name;
                 }
-                if(req.body.price){
+                if(updatedProduct.price){
                     foundObject.price = req.body.price;
                 }
-                if(req.body.stock){
+                if(updatedProduct.stock){
                     foundObject.stock = req.body.stock;
                 }
                 foundObject.save(function(err, updatedObject){

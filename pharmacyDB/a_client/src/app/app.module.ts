@@ -10,6 +10,7 @@ import { ProductsComponent } from './products/products.component';
 import { ListProductsComponent } from './list-products/list-products.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { EditProductComponent } from './edit-product/edit-product.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
     ListProductsComponent,
     AddProductComponent,
     ProductDetailsComponent,
+    EditProductComponent,
     
   ],
   imports: [

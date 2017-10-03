@@ -27,7 +27,9 @@
           <button (click) = "deleteProduct(product.id)" class = "btn btn-danger">Del</button>
       </td>
       <td class="col-md-3">
-          <input type="button" value="Edit" class="btn btn-info"/>
+          <a [routerLink]="['../../edit-product/edit-product', product.id]" routerLinkActive="active" id="edit_product">
+            <button class="btn btn-info">Edit</button></a>
+          <!-- <input type="button" value="Edit" class="btn btn-info"/> -->
       </td>
     </tr>
   </table>
