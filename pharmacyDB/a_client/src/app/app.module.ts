@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { ListProductsComponent } from './list-products/list-products.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
+import { CheckStockComponent } from './check-stock/check-stock.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { EditProductComponent } from './edit-product/edit-product.component';
     ListProductsComponent,
     AddProductComponent,
     EditProductComponent,
+    CheckStockComponent,
     
   ],
   imports: [

@@ -11,7 +11,6 @@ export class ProductsService {
   getProducts(){
     return this.http.get('http://localhost:3000/api/products').map(res => res.json());
   }
-
   addProduct(newProduct){
     var headers = new Headers();
     headers.append('Content-Type', 'application/json');
