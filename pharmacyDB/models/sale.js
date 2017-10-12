@@ -1,13 +1,15 @@
 const mongoose = require('mongoose');
+const Products = require('./products.js');
 
 const SaleSchema = mongoose.Schema({
     id:{
         type: Number,
         require: true
     },
-    ProdId:{
+    prodId:{
         type: Number,
-        require: true
+        require: true,
+        ref: 'Products'
     },
     date:{
         type: Date,
@@ -17,10 +19,6 @@ const SaleSchema = mongoose.Schema({
         type: Number,
         require: true
     },
-    saleprice:{
-        type: Number,
-        require: true
-    }
 });
 
-const Product = module.exports = mongoose.model('Products', ProductSchema);
+const Sale = module.exports = mongoose.model('Sales', SaleSchema);
