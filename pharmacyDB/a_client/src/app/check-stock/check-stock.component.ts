@@ -16,6 +16,12 @@ export class CheckStockComponent implements OnInit {
   ngOnInit() {
     this.productsService.checkStock().subscribe(products => this.lowStocks = products);
   }
+
+  getPercentage(percentage)
+  {
+    console.log(percentage);
+    return percentage + "%";
+  }
   
 }
   
