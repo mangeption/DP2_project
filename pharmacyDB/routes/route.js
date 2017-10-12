@@ -1,7 +1,12 @@
 const express = require('express');
 const router = express.Router();
 
+
+
 const Products = require('../models/products.js');
+
+
+
 //Get all products
 router.get('/products', function(req, res, next){
     Products.find(function(err, prods){
@@ -68,6 +73,12 @@ router.delete('/delProduct/:id', function(req, res, next){
     });
 
     
+});
+// check low stock
+router.get('/lowStocks', function(req, res, next){
+    Products.find({stock : {$lt:30}}, function(err, lowStock) {
+        res.json(lowStock)
+    });
 });
 
 module.exports = router;

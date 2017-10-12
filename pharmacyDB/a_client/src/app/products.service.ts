@@ -26,5 +26,8 @@ export class ProductsService {
     headers.append('Content-Type', 'application/json');
     return this.http.put('http://localhost:3000/api/editProduct/' + id, foundObject, {headers:headers}).map(res => res.json());
   }
+  checkStock(){
+    return this.http.get('http://localhost:3000/api/lowStocks').map(res => res.json());
+  }
 
 }

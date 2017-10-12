@@ -9,18 +9,14 @@ import {ProductsService} from '../products.service';
   providers: [ProductsService]
 })
 export class CheckStockComponent implements OnInit {
-  products: Products[];
+ 
   lowStocks: Products[];
   constructor(private productsService: ProductsService) { }
 
   ngOnInit() {
-    this.productsService.getProducts().subscribe(products => this.lowStocks = products);
-  }
-  checkStock(){
-    for(var i=0; i<this.products.length; i++){
-      this.lowStocks.push(this.products[i]);
-    }
+    this.productsService.checkStock().subscribe(products => this.lowStocks = products);
   }
   
-
 }
+  
+

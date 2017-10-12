@@ -8,6 +8,7 @@ var app = express();
 
 const route = require('./routes/route.js')
 
+
 mongoose.connect('mongodb://localhost:27017/Products');
 
 mongoose.connection.on('connected', function(){
@@ -32,9 +33,13 @@ app.use(bodyparser.json());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+
 //routes
+
 app.use('/api', route);
+// background.checkStock();
 
 app.listen(port, function(){
     console.log('Server started at port: ' + port);
+    
 });
