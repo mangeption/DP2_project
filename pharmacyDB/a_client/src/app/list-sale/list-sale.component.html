@@ -1,3 +1,37 @@
-<p>
-  list-sale works!
-</p>
+<!DOCTYPE>
+<html ng-app>
+<div class = "container">
+  <table>
+    <tr>
+      <th>SALE ID</th>
+      <th>PRODUCT ID</th>
+      <th>DATE</th>
+      <th>QTY</th>
+      <th>DELETE</th>
+      <th>EDIT</th>
+    </tr>
+    <tr *ngFor = "let sale of sales">
+      <td class = "col-md-3">
+        {{sale.id}}
+      </td>
+      <td class = "col-md-3">
+        {{sale.prodId}}
+      </td>
+      <td class = "col-md-3">
+        {{sale.date}}
+      </td>
+      <td class = "col-md-3">
+        {{sale.qty}}
+      </td>
+      <td class = "col-md-3">
+          <button (click) = "deleteSale(sale.id)" class = "btn btn-danger">Del</button>
+      </td>
+      <td class="col-md-3">
+          <a [routerLink]="['../../edit-sale/edit-sale', sale.id]" routerLinkActive="active" id="edit_sale">
+            <button class="btn btn-info">Edit</button></a>
+          <!-- <input type="button" value="Edit" class="btn btn-info"/> -->
+      </td>
+    </tr>
+  </table>
+</div>
+</html>

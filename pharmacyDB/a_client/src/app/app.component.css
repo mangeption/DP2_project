@@ -24,3 +24,12 @@ nav a.active{
     margin-bottom: 3em;
 }
 
+.container-fluid ul
+{
+    display: inline-block;
+}
+
+#nav_bar
+{
+    width: 46%;
+}
