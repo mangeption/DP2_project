@@ -8,7 +8,6 @@
       <th>DATE</th>
       <th>QTY</th>
       <th>DELETE</th>
-      <th>EDIT</th>
     </tr>
     <tr *ngFor = "let sale of sales">
       <td class = "col-md-3">
@@ -25,11 +24,6 @@
       </td>
       <td class = "col-md-3">
           <button (click) = "deleteSale(sale.id, sale.prodId, sale.qty)" class = "btn btn-danger">Del</button>
-      </td>
-      <td class="col-md-3">
-          <a [routerLink]="['../../edit-sale/edit-sale', sale.id]" routerLinkActive="active" id="edit_sale">
-            <button class="btn btn-info">Edit</button></a>
-          <!-- <input type="button" value="Edit" class="btn btn-info"/> -->
       </td>
     </tr>
   </table>
