@@ -25,28 +25,29 @@ export class AddSaleComponent implements OnInit {
   ngOnInit() {
     this.productService.getProducts().subscribe(products => this.products = products);
   }
-  addProduct(){
+  addSale(){
     const newSale={
       id: this.id,
       prodId: this.prodId,
       date: this.date,
       qty: this.qty
     }
+    console.log(this.id + "  " + this.prodId + "  " + this.date + "  " + this.qty);
     this.saleService.addSale(newSale).subscribe(() => {
-      this.location.back();
+      
     });
   }
 
   getShowTheForm()
   {
-    console.log(this.showtheform);
     return this.showtheform;
   }
 
-  reverseShowTheForm()
+  reverseShowTheForm(productID)
   {
-    console.log("Reverse");
-    this.showtheform = ! this.showtheform;
+    this.showtheform = !this.showtheform;
+    this.prodId = productID;
+    console.log(this.prodId);
   }
 
 }
