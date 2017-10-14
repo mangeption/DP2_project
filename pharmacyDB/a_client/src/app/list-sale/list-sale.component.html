@@ -24,7 +24,7 @@
         {{sale.qty}}
       </td>
       <td class = "col-md-3">
-          <button (click) = "deleteSale(sale.id)" class = "btn btn-danger">Del</button>
+          <button (click) = "deleteSale(sale.id, sale.prodId, sale.qty)" class = "btn btn-danger">Del</button>
       </td>
       <td class="col-md-3">
           <a [routerLink]="['../../edit-sale/edit-sale', sale.id]" routerLinkActive="active" id="edit_sale">

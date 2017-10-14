@@ -8,6 +8,10 @@ export class ProductsService {
 
   constructor(private http: Http) { }
 
+  getProductId(id){
+    return this.http.get('http://localhost:3000/p/products/'+ id).map(res => res.json());
+  }
+  
   getProducts(){
     return this.http.get('http://localhost:3000/p/products').map(res => res.json());
   }
