@@ -7,13 +7,13 @@ const Sales = require('../models/sale.js');
 
 
 
-//Get all products
+//Get all sales
 router.get('/sales', function(req, res, next){
     Sales.find(function(err, s){
         res.json(s)
     });
 });
-//Add new product
+//Add new sale
 router.post('/addSale', function(req, res, next){
     let newSale = new Sales({
         id: req.body.id,
@@ -29,7 +29,7 @@ router.post('/addSale', function(req, res, next){
         }
     });
 });
-//Edit existed product by id
+//Edit existed sale by id
 router.put('/editSale/:id', function(req, res, next){
     let updatedSale = new Sales({
         id: req.body.id,
@@ -53,8 +53,10 @@ router.put('/editSale/:id', function(req, res, next){
                 }
                 foundObject.save(function(err, updatedObject){
                     if(updatedObject){
+                        console.log("Updated 1")
                         res.json({msg: 'Product editted successfully'})
                     }else{
+                        console.log("Updated 2");
                         res.json({msg: 'Fail to edit document'})
                     }
                 });

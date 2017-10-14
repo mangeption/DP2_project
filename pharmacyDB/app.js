@@ -11,6 +11,7 @@ const saleRoute = require('./routes/saleRoute.js')
 
 
 mongoose.connect('mongodb://localhost:27017/Products');
+mongoose.Promise = global.Promise;
 
 mongoose.connection.on('connected', function(){
     console.log('Connection successfully established to mongodb @ 27017');

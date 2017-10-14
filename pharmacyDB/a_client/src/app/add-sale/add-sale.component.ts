@@ -16,6 +16,7 @@ export class AddSaleComponent implements OnInit {
   prodId: number;
   date: Date;
   qty: number;
+  stock: number;
   products : Products[];
   showtheform : boolean;
   constructor(private saleService: SaleService, private location: Location, private productService: ProductsService) {
@@ -32,10 +33,10 @@ export class AddSaleComponent implements OnInit {
       date: this.date,
       qty: this.qty
     }
-    console.log(this.id + "  " + this.prodId + "  " + this.date + "  " + this.qty);
     this.saleService.addSale(newSale).subscribe(() => {
-      
+  
     });
+    this.modifyProduct(this.prodId, this.stock);
   }
 
   getShowTheForm()
@@ -43,11 +44,21 @@ export class AddSaleComponent implements OnInit {
     return this.showtheform;
   }
 
-  reverseShowTheForm(productID)
+  reverseShowTheForm(productID,stock)
   {
     this.showtheform = !this.showtheform;
     this.prodId = productID;
-    console.log(this.prodId);
+    this.stock = stock;
+  }
+
+  modifyProduct(productID, productStock)
+  {
+    const selProduct={
+      id: productID,
+      stock: productStock - this.qty
+    }
+    this.productService.editProduct(selProduct.id, selProduct).subscribe(product => {
+    });
   }
 
 }

@@ -1,5 +1,5 @@
 <div class="list-group" *ngFor = "let product of products">
-  <a class="list-group-item" (click)="reverseShowTheForm(product.id)">
+  <a class="list-group-item" (click)="reverseShowTheForm(product.id, product.stock)">
     {{product.name}}
   </a>
 </div>
