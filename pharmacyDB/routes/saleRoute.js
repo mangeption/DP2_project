@@ -73,7 +73,32 @@ router.delete('/delSale/:id', function(req, res, next){
             res.json(result);
         }
     });
-
     
+});
+// List sales by month
+router.get('/saleByMonth/:month/:year', function(req, res, next){
+    
+    var firstDay = new Date(req.params.year, req.params.month, 0);
+    var lastDay = new Date(req.params.year, req.params.month+1, 0);
+    Sales.find({date : {$gte:firstDay, $lte:lastDay}}, function(err, s) {
+        if(err){
+            res.json(err);
+        }else{
+            res.json(s)
+        }
+    });
+});
+
+// List sales by week
+router.get('/saleByWeek/:week/:month/:year', function(req, res, next){
+    var firstDay = new Date(req.params.year, req.params.month-1, 0 + (req.params.week-1)*7);
+    var lastDay = new Date(req.params.year, req.params.month-1,0 + (req.params.week)*7);
+    Sales.find({date : {$gte:firstDay, $lte:lastDay}}, function(err, s) {
+        if(err){
+            res.json(err);
+        }else{
+            res.json(s)
+        }
+    });
 });
 module.exports = router;

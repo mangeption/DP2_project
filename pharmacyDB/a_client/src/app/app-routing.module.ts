@@ -7,13 +7,21 @@ import { CheckStockComponent} from './check-stock/check-stock.component';
 import { AddSaleComponent } from './add-sale/add-sale.component';
 import { EditSaleComponent } from './edit-sale/edit-sale.component';
 import { ListSaleComponent } from './list-sale/list-sale.component';
+import { SaleMonthComponent } from './sale-month/sale-month.component';
+import { SaleWeekComponent} from './sale-week/sale-week.component';
 const routes: Routes = [
     {path: '', redirectTo: './app', pathMatch: 'full'},
     {path: 'add-product/add-product', component: AddProductComponent},
     {path: 'list-products/list-products', component: ListProductsComponent},
     {path: 'edit-product/edit-product/:id', component: EditProductComponent},
     {path: 'add-sale/add-sale', component: AddSaleComponent},
-    {path: 'list-sale/list-sale', component: ListSaleComponent},
+    {path: 'list-sale/list-sale', component: ListSaleComponent,
+        children: [
+            {path: '', redirectTo:'', pathMatch: 'full'},
+            {path: 'month', component: SaleMonthComponent},
+            {path: 'week', component: SaleWeekComponent}
+        ]
+    },
     {path: 'edit-sale/edit-sale/:id', component: EditSaleComponent}
 ];
 

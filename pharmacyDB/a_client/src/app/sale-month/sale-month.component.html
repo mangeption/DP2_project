@@ -7,9 +7,8 @@
       <th>PRODUCT ID</th>
       <th>DATE</th>
       <th>QTY</th>
-      <th>DELETE</th>
     </tr>
-    <tr *ngFor = "let sale of sales">
+    <tr *ngFor = "let sale of salesmonth">
       <td class = "col-md-3">
         {{sale.id}}
       </td>
@@ -22,15 +21,6 @@
       <td class = "col-md-3">
         {{sale.qty}}
       </td>
-      <td class = "col-md-3">
-          <button (click) = "deleteSale(sale.id, sale.prodId, sale.qty)" class = "btn btn-danger">Del</button>
-      </td>
     </tr>
   </table>
 </div>
-<nav>
-  <a routerLink="month" routerLinkActive="active" id="sale_month">This Month Sales</a>
-  <a routerLink="week" routerLinkActive="active" id="sale_week">This Week Sales</a> 
-</nav>
-<router-outlet></router-outlet>
-</html>

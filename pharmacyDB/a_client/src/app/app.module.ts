@@ -13,6 +13,8 @@ import { CheckStockComponent } from './check-stock/check-stock.component';
 import { ListSaleComponent } from './list-sale/list-sale.component';
 import { AddSaleComponent } from './add-sale/add-sale.component';
 import { EditSaleComponent } from './edit-sale/edit-sale.component';
+import { SaleMonthComponent } from './sale-month/sale-month.component';
+import { SaleWeekComponent } from './sale-week/sale-week.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { EditSaleComponent } from './edit-sale/edit-sale.component';
     ListSaleComponent,
     AddSaleComponent,
     EditSaleComponent,
+    SaleMonthComponent,
+    SaleWeekComponent,
     
   ],
   imports: [
