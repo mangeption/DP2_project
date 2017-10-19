@@ -27,9 +27,10 @@ export class SaleService {
     return this.http.put('http://localhost:3000/s/editSale/' + id, foundObject, {headers:headers}).map(res => res.json());
   }
   getSaleByMonth(month, year){
+    console.log("aaaa");
     return this.http.get('http://localhost:3000/s/saleByMonth/' + month + '/' + year).map(res => res.json());
   }
-  getSaleByWeek(week, month, year){
-    return this.http.get('http://localhost:3000/s/saleByWeek/' + week + '/' + month + '/' + year).map(res => res.json());
+  getSaleByWeek(date, month, year){
+    return this.http.get('http://localhost:3000/s/saleByWeek/' + date + '/' + month + '/' + year).map(res => res.json());
   }
 }
