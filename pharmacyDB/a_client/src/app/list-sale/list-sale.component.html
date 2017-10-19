@@ -1,36 +1,49 @@
 <!DOCTYPE>
 <html ng-app>
 <div class = "container">
-  <table>
-    <tr>
-      <th>SALE ID</th>
-      <th>PRODUCT ID</th>
-      <th>DATE</th>
-      <th>QTY</th>
-      <th>DELETE</th>
-    </tr>
-    <tr *ngFor = "let sale of sales">
-      <td class = "col-md-3">
-        {{sale.id}}
-      </td>
-      <td class = "col-md-3">
-        {{sale.prodId}}
-      </td>
-      <td class = "col-md-3">
-        {{sale.date}}
-      </td>
-      <td class = "col-md-3">
-        {{sale.qty}}
-      </td>
-      <td class = "col-md-3">
-          <button (click) = "deleteSale(sale.id, sale.prodId, sale.qty)" class = "btn btn-danger">Del</button>
-      </td>
-    </tr>
+  <table class="table table-striped table-hover">
+    <thead>
+        <tr class="info">
+            <th>SALE ID</th>
+            <th>PRODUCT ID</th>
+            <th>DATE</th>
+            <th>QTY</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="active" *ngFor = "let sale of sales">
+            <td class = "col-md-3">
+              {{sale.id}}
+            </td>
+            <td class = "col-md-3">
+              {{sale.prodId}}
+            </td>
+            <td class = "col-md-3">
+              {{sale.date}}
+            </td>
+            <td class = "col-md-3">
+              {{sale.qty}}
+            </td>
+            <td class = "col-md-3">
+                <button (click) = "deleteSale(sale.id, sale.prodId, sale.qty)" class = "btn btn-danger">Del</button>
+            </td>
+        </tr>
+    </tbody>
+
   </table>
 </div>
-<nav>
-  <a routerLink="month" routerLinkActive="active" id="sale_month">This Month Sales</a>
-  <a routerLink="week" routerLinkActive="active" id="sale_week">This Week Sales</a> 
-</nav>
+<div class="container">
+    <div class="btn-group btn-group-justified">
+        <nav id="navsale">
+          <a routerLink="month" routerLinkActive="active" id="sale_month" class="btn btn-success">This Month Sales</a>
+          <a routerLink="week" routerLinkActive="active" id="sale_week" class="btn btn-success">This Week Sales</a> 
+        </nav>
+      </div>
+</div>
+
+
+
+
 <router-outlet></router-outlet>
 </html>
