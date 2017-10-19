@@ -19,8 +19,9 @@ export class SaleMonthComponent implements OnInit {
     var d = new Date();
     var n = d.getMonth();
     var y = d.getFullYear();
-    console.log(n);
-    this.salesService.getSaleByMonth(n - 1, y).subscribe(sales => this.salesmonth = sales);
+    var day = d.getDate();
+    console.log(d);
+    this.salesService.getSaleByMonth(n, y).subscribe(sales => this.salesmonth = sales);
   }
 
 }

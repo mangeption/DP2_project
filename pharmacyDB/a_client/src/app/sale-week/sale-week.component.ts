@@ -17,9 +17,9 @@ export class SaleWeekComponent implements OnInit {
     var d = new Date();
     var n = d.getMonth();
     var y = d.getFullYear();
-    var w = d.getDay()/7;
-    console.log(n);
-    this.salesService.getSaleByWeek(n, y, w).subscribe(sales => this.salesweek = sales);
+    var date = d.getDate()
+    console.log(date);
+    this.salesService.getSaleByWeek(date, n, y).subscribe(sales => this.salesweek = sales);
   }
 
 }

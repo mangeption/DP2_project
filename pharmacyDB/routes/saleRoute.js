@@ -78,8 +78,9 @@ router.delete('/delSale/:id', function(req, res, next){
 // List sales by month
 router.get('/saleByMonth/:month/:year', function(req, res, next){
     
-    var firstDay = new Date(req.params.year, req.params.month, 0);
-    var lastDay = new Date(req.params.year, req.params.month+1, 0);
+    var firstDay = new Date(req.params.year, req.params.month, 1);
+    var lastDay = new Date(req.params.year,req.params.month,31);
+    console.log(firstDay);
     Sales.find({date : {$gte:firstDay, $lte:lastDay}}, function(err, s) {
         if(err){
             res.json(err);
@@ -90,9 +91,11 @@ router.get('/saleByMonth/:month/:year', function(req, res, next){
 });
 
 // List sales by week
-router.get('/saleByWeek/:week/:month/:year', function(req, res, next){
-    var firstDay = new Date(req.params.year, req.params.month-1, 0 + (req.params.week-1)*7);
-    var lastDay = new Date(req.params.year, req.params.month-1,0 + (req.params.week)*7);
+router.get('/saleByWeek/:date/:month/:year', function(req, res, next){
+    var firstDay = new Date(req.params.year,req.params.month, req.params.date-7);
+    var lastDay = new Date(req.params.year, req.params.month, req.params.date);
+    console.log(firstDay);
+    console.log(lastDay);
     Sales.find({date : {$gte:firstDay, $lte:lastDay}}, function(err, s) {
         if(err){
             res.json(err);
