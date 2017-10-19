@@ -6,9 +6,12 @@ var path = require('path');
 
 var app = express();
 
-const route = require('./routes/route.js')
+const prodRoute = require('./routes/prodRoute.js')
+const saleRoute = require('./routes/saleRoute.js')
+
 
 mongoose.connect('mongodb://localhost:27017/Products');
+mongoose.Promise = global.Promise;
 
 mongoose.connection.on('connected', function(){
     console.log('Connection successfully established to mongodb @ 27017');
@@ -32,9 +35,14 @@ app.use(bodyparser.json());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+
 //routes
-app.use('/api', route);
+
+app.use('/p', prodRoute);
+app.use('/s', saleRoute);
+// background.checkStock();
 
 app.listen(port, function(){
     console.log('Server started at port: ' + port);
+    
 });

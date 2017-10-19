@@ -1,0 +1,26 @@
+<!DOCTYPE>
+<html ng-app>
+<div class = "container">
+  <table>
+    <tr>
+      <th>SALE ID</th>
+      <th>PRODUCT ID</th>
+      <th>DATE</th>
+      <th>QTY</th>
+    </tr>
+    <tr *ngFor = "let sale of salesmonth">
+      <td class = "col-md-3">
+        {{sale.id}}
+      </td>
+      <td class = "col-md-3">
+        {{sale.prodId}}
+      </td>
+      <td class = "col-md-3">
+        {{sale.date}}
+      </td>
+      <td class = "col-md-3">
+        {{sale.qty}}
+      </td>
+    </tr>
+  </table>
+</div>

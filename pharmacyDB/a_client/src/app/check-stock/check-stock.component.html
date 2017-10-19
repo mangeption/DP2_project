@@ -1,6 +1,10 @@
-<p>
-  It works
-  <tr *ngFor="let product of lowStocks">
-    con ku
-  </tr>
-</p>
+<div class="panel panel-danger">
+  <div class="panel-heading">
+    <h3 class="panel-title">Products in low stocks !!!!!</h3>
+  </div>
+  <div class="panel-body" *ngFor ="let product of lowStocks">
+        <div>{{product.name}} : {{product.stock}} </div>
+        <div class="progress progress-striped">
+                <div class="progress-bar progress-bar-warning" [style.width]="getPercentage(product.stock)"></div>
+        </div> 
+  </div>

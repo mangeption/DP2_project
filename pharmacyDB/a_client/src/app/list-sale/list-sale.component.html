@@ -1,0 +1,36 @@
+<!DOCTYPE>
+<html ng-app>
+<div class = "container">
+  <table>
+    <tr>
+      <th>SALE ID</th>
+      <th>PRODUCT ID</th>
+      <th>DATE</th>
+      <th>QTY</th>
+      <th>DELETE</th>
+    </tr>
+    <tr *ngFor = "let sale of sales">
+      <td class = "col-md-3">
+        {{sale.id}}
+      </td>
+      <td class = "col-md-3">
+        {{sale.prodId}}
+      </td>
+      <td class = "col-md-3">
+        {{sale.date}}
+      </td>
+      <td class = "col-md-3">
+        {{sale.qty}}
+      </td>
+      <td class = "col-md-3">
+          <button (click) = "deleteSale(sale.id, sale.prodId, sale.qty)" class = "btn btn-danger">Del</button>
+      </td>
+    </tr>
+  </table>
+</div>
+<nav>
+  <a routerLink="month" routerLinkActive="active" id="sale_month">This Month Sales</a>
+  <a routerLink="week" routerLinkActive="active" id="sale_week">This Week Sales</a> 
+</nav>
+<router-outlet></router-outlet>
+</html>

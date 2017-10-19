@@ -1,11 +1,25 @@
 const express = require('express');
 const router = express.Router();
 
+
+
 const Products = require('../models/products.js');
+
+
+
 //Get all products
 router.get('/products', function(req, res, next){
     Products.find(function(err, prods){
         res.json(prods)
+    });
+});
+//Get a product by id
+router.get('/products/:id', function(req,res,next){
+    Products.findOne({id: req.params.id}, function(err, foundProduct){
+        if (err)
+            res.json(err);
+        else
+            res.json(foundProduct);
     });
 });
 //Add new product
@@ -68,6 +82,13 @@ router.delete('/delProduct/:id', function(req, res, next){
     });
 
     
+});
+
+// check low stock
+router.get('/lowStocks', function(req, res, next){
+    Products.find({stock : {$lt:30}}, function(err, lowStock) {
+        res.json(lowStock)
+    });
 });
 
 module.exports = router;
