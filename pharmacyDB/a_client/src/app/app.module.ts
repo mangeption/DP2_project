@@ -17,6 +17,7 @@ import { SaleMonthComponent } from './sale-month/sale-month.component';
 import { SaleWeekComponent } from './sale-week/sale-week.component';
 import {SalesGraphComponent} from './sales-graph/sales-graph.component';
 import {ChartsModule} from 'ng2-charts';
+import { TestComponentComponent } from './test-component/test-component.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {ChartsModule} from 'ng2-charts';
     EditSaleComponent,
     SaleMonthComponent,
     SaleWeekComponent,
-    SalesGraphComponent
+    SalesGraphComponent,
+    TestComponentComponent
   ],
   imports: [
     BrowserModule, HttpModule, FormsModule, AppRoutingModule, ChartsModule

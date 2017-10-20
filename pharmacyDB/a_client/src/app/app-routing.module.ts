@@ -10,6 +10,7 @@ import { ListSaleComponent } from './list-sale/list-sale.component';
 import { SaleMonthComponent } from './sale-month/sale-month.component';
 import { SaleWeekComponent} from './sale-week/sale-week.component';
 import { SalesGraphComponent} from './sales-graph/sales-graph.component';
+// import { TestComponentComponent} from './test-component/test-component.component';
 const routes: Routes = [
     {path: '', redirectTo: './app', pathMatch: 'full'},
     {path: 'add-product/add-product', component: AddProductComponent},
@@ -25,6 +26,7 @@ const routes: Routes = [
     },
     {path: 'edit-sale/edit-sale/:id', component: EditSaleComponent},
     {path: 'sales-graph/sales-graph', component: SalesGraphComponent}
+    // {path: 'test/test', component:TestComponentComponent}
 ];
 
 @NgModule({

@@ -80,20 +80,20 @@ export class SalesGraphComponent implements OnInit {
 
   
   public lineChartData:Array<any> = new Array(1);
-    // {data: [this.revenueMonth(this.sales1), this.revenueMonth(this.sales2), this.revenueMonth(this.sales3), this.revenueMonth(this.sales4), 
-    //   this.revenueMonth(this.sales5), this.revenueMonth(this.sales6)], label: 'Series A'}
-    // {month: this.months[this.now.getMonth() - 5], revenue: this.revenueMonth(this.now.getMonth() - 5, this.now.getFullYear())}, 
-    // {month: this.months[this.now.getMonth() - 4], revenue: this.revenueMonth(this.now.getMonth() - 4, this.now.getFullYear())},
-    // {month: this.months[this.now.getMonth() - 3], revenue: this.revenueMonth(this.now.getMonth() - 3, this.now.getFullYear())},
-    // {month: this.months[this.now.getMonth() - 2], revenue: this.revenueMonth(this.now.getMonth() - 2, this.now.getFullYear())},
-    // {month: this.months[this.now.getMonth() - 1], revenue: this.revenueMonth(this.now.getMonth() - 1, this.now.getFullYear())},
-    // {month: this.months[this.now.getMonth()], revenue: this.revenueMonth(this.now.getMonth(), this.now.getFullYear())}    
+  //   // {data: [this.revenueMonth(this.sales1), this.revenueMonth(this.sales2), this.revenueMonth(this.sales3), this.revenueMonth(this.sales4), 
+  //   //   this.revenueMonth(this.sales5), this.revenueMonth(this.sales6)], label: 'Series A'}
+  //   // {month: this.months[this.now.getMonth() - 5], revenue: this.revenueMonth(this.now.getMonth() - 5, this.now.getFullYear())}, 
+  //   // {month: this.months[this.now.getMonth() - 4], revenue: this.revenueMonth(this.now.getMonth() - 4, this.now.getFullYear())},
+  //   // {month: this.months[this.now.getMonth() - 3], revenue: this.revenueMonth(this.now.getMonth() - 3, this.now.getFullYear())},
+  //   // {month: this.months[this.now.getMonth() - 2], revenue: this.revenueMonth(this.now.getMonth() - 2, this.now.getFullYear())},
+  //   // {month: this.months[this.now.getMonth() - 1], revenue: this.revenueMonth(this.now.getMonth() - 1, this.now.getFullYear())},
+  //   // {month: this.months[this.now.getMonth()], revenue: this.revenueMonth(this.now.getMonth(), this.now.getFullYear())}    
 
   public lineChartLabels:Array<any> = [this.months[this.now.getMonth() - 5], this.months[this.now.getMonth() - 4], this.months[this.now.getMonth() - 3], this.months[this.now.getMonth() - 2], this.months[this.now.getMonth() - 1], this.months[this.now.getMonth()]];
   public lineChartOptions:any = {
        responsive: true
   };
-  public lineChartColors:Array<any> = [
+   public lineChartColors:Array<any> = [
       { // grey
         backgroundColor: 'rgba(148,159,177,0.2)',
         borderColor: 'rgba(148,159,177,1)',
@@ -101,7 +101,7 @@ export class SalesGraphComponent implements OnInit {
         pointBorderColor: '#fff',
         pointHoverBackgroundColor: '#fff',
         pointHoverBorderColor: 'rgba(148,159,177,0.8)'
-      }
+     }
     ];
 
   public lineChartLegend:boolean = true;
