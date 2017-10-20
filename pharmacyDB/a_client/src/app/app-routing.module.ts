@@ -9,6 +9,7 @@ import { EditSaleComponent } from './edit-sale/edit-sale.component';
 import { ListSaleComponent } from './list-sale/list-sale.component';
 import { SaleMonthComponent } from './sale-month/sale-month.component';
 import { SaleWeekComponent} from './sale-week/sale-week.component';
+import { SalesGraphComponent} from './sales-graph/sales-graph.component';
 const routes: Routes = [
     {path: '', redirectTo: './app', pathMatch: 'full'},
     {path: 'add-product/add-product', component: AddProductComponent},
@@ -22,7 +23,8 @@ const routes: Routes = [
             {path: 'week', component: SaleWeekComponent}
         ]
     },
-    {path: 'edit-sale/edit-sale/:id', component: EditSaleComponent}
+    {path: 'edit-sale/edit-sale/:id', component: EditSaleComponent},
+    {path: 'sales-graph/sales-graph', component: SalesGraphComponent}
 ];
 
 @NgModule({
