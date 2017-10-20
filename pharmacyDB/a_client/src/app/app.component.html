@@ -58,25 +58,37 @@
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
+                        <li><a href="#">Home</a></li>
                         <li><a routerLink="list-products/list-products" routerLinkActive="active" id="list_products">List Available Products<span class="sr-only"></span></a></li>
                         <li><a routerLink="add-product/add-product" routerLinkActive="active" id="add_product">Add New Product</a></li>
                         <li><a routerLink="list-sale/list-sale" routerLinkActive="active" id="list_sale">List The Sales</a></li>
                         <li><a routerLink="add-sale/add-sale" routerLinkActive="active" id="add_sale">Add Sale</a></li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="collapse" aria-expanded="true" role="button">About<span class="caret"></span></a>
+                        <li><a routerLink="sales-graph/sales-graph" routerLinkActive="active" id="sales_graph">Records Graph</a></li>
+                        <!-- <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="collapse" aria-expanded="true" role="button">About<span class="caret"></span></a>
                             <!-- <ul class="dropdown-menu" role="menu">
                                 <li><a href="#">MEAN Stack</a></li>
                                 <li class="divider"></li>
                                 <li><a href="#">About The AUTOBOT</a></li>
                                 <li><a href="#">Services</a></li>
                                 <li><a href="#">Contact</a></li>
-                            </ul> -->
-                        </li>
-                        <li><a routerLink="sales-graph/sales-graph" routerLinkActive="active" id="sales_graph">Monthly Records Graph</a></li>
+                            </ul>-->
+                        <!-- </li> -->
+
                     </ul>
             </div>
     </div>
 </nav>
+
+<!-- <div class="jumbotron">
+    <h1>MEAN Stack</h1>
+    <p>MEAN is a free and open-source JavaScript software stack for building dynamic web sites and web applications</p>
+    <p><a href="http://mean.io/" class="btn btn-primary btn-lg">Learn more</a></p>
+</div> -->
+<blockquote>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+    <small>Someone famous in <cite title="Google">Google</cite></small>
+</blockquote>
 
 <router-outlet></router-outlet>
 <!-- <h2> Here is the list of current products </h2> -->
