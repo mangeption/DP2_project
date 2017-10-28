@@ -27,10 +27,10 @@
               {{product.stock}}
             </td>
             <td class = "col-md-3">
-                <button (click) = "deleteProduct(product.id)" class = "btn btn-danger">Del</button>
+                <button (click) = "deleteProduct(product._id)" class = "btn btn-danger">Del</button>
             </td>
             <td class="col-md-3">
-                <a [routerLink]="['../../edit-product/edit-product', product.id]" routerLinkActive="active" id="edit_product">
+                <a [routerLink]="['../../edit-product/edit-product', product.id, product._id]" routerLinkActive="active" id="edit_product">
                   <button class="btn btn-info">Edit</button></a>
                 <!-- <input type="button" value="Edit" class="btn btn-info"/> -->
             </td>

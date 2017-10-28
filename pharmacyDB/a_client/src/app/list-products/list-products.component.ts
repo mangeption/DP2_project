@@ -22,7 +22,7 @@ export class ListProductsComponent implements OnInit {
     this.productsService.deleteProduct(id).subscribe(data=>{
         for(var i=0; i< products.length; i++)
         {
-          if(products[i].id == id)
+          if(products[i]._id == id)
           {
             console.log("true");
             products.splice(i,1);

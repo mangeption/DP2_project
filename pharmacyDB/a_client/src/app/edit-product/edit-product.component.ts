@@ -14,6 +14,7 @@ import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 })
 export class EditProductComponent implements OnInit {
 
+  _id: string;
   id: number;
   name: string;
   price: number;
@@ -25,7 +26,7 @@ export class EditProductComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.route.params.subscribe(params => {this.id = +params['id'];});
+    this.route.params.subscribe(params => {this._id = params['_id']; this.id = +params['id'];});
   }
  
   editProduct(){
@@ -35,7 +36,7 @@ export class EditProductComponent implements OnInit {
       price: this.price,
       stock: this.stock
     }
-    this.productsService.editProduct(selProduct.id, selProduct).subscribe(product => {
+    this.productsService.editProduct(this._id, selProduct).subscribe(product => {
       this.location.back();
     });
   }

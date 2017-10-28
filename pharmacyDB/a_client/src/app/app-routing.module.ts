@@ -15,7 +15,7 @@ const routes: Routes = [
     {path: '', redirectTo: './app', pathMatch: 'full'},
     {path: 'add-product/add-product', component: AddProductComponent},
     {path: 'list-products/list-products', component: ListProductsComponent},
-    {path: 'edit-product/edit-product/:id', component: EditProductComponent},
+    {path: 'edit-product/edit-product/:id/:_id', component: EditProductComponent},
     {path: 'add-sale/add-sale', component: AddSaleComponent},
     {path: 'list-sale/list-sale', component: ListSaleComponent,
         children: [
@@ -24,7 +24,7 @@ const routes: Routes = [
             {path: 'week', component: SaleWeekComponent}
         ]
     },
-    {path: 'edit-sale/edit-sale/:id', component: EditSaleComponent},
+    {path: 'edit-sale/edit-sale/:id/:_id', component: EditSaleComponent},
     {path: 'sales-graph/sales-graph', component: SalesGraphComponent},
     {path: 'test/test', component:TestComponentComponent}
 ];
