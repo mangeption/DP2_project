@@ -3,13 +3,16 @@ import {SaleService} from '../sale.service';
 import {Sales} from '../sales';
 import {Location} from '@angular/common';
 import {Products} from '../products';
-import {ProductsService} from '../products.service'
+import {ProductsService} from '../products.service';
+import {PatternValidator} from '@angular/forms';
+import {NotificationsService} from 'angular2-notifications';
+
 
 @Component({
   selector: 'app-add-sale',
   templateUrl: './add-sale.component.html',
   styleUrls: ['./add-sale.component.css'],
-  providers: [SaleService, ProductsService]
+  providers: [SaleService, ProductsService, NotificationsService]
 })
 export class AddSaleComponent implements OnInit {
   id : number;
@@ -19,7 +22,7 @@ export class AddSaleComponent implements OnInit {
   stock: number;
   products : Products[];
   showtheform : boolean;
-  constructor(private saleService: SaleService, private location: Location, private productService: ProductsService) {
+  constructor(private saleService: SaleService, private location: Location, private productService: ProductsService, private notiService: NotificationsService) {
     this.showtheform = false;
    }
 
@@ -33,10 +36,32 @@ export class AddSaleComponent implements OnInit {
       date: this.date,
       qty: this.qty
     }
-    this.saleService.addSale(newSale).subscribe(() => {
-  
-    });
-    this.modifyProduct(this.prodId, this.stock);
+    
+    if (!newSale.id || !newSale.date || !newSale.qty)
+    {
+      const toast = this.notiService.error("Invalid Input", "You must fill all inputs", {
+        timeOut: 1000,
+        showProgressBar: true,
+        pauseOnHover:false,
+        clickToClose: true
+      });
+    }
+    else if (/((0[1-9])|(1[0-2]))\/(([0-2][0-9])|(3[0-1]))\/([1-2][0-9][0-9][0-9])/g.test(this.date.toString()))
+    {
+      this.saleService.addSale(newSale).subscribe(() => {
+        
+          });
+          this.modifyProduct(this.prodId, this.stock);
+    }
+    else
+    {
+      const toast = this.notiService.error("Invalid Input", "Your date is in wrong pattern", {
+        timeOut: 1000,
+        showProgressBar: true,
+        pauseOnHover:false,
+        clickToClose: true
+      });
+    }
   }
 
   getShowTheForm()
@@ -59,6 +84,12 @@ export class AddSaleComponent implements OnInit {
     }
     this.productService.editProduct(selProduct.id, selProduct).subscribe(product => {
     });
+  }
+
+  public options = {
+    position: ["bottom", "right"],
+    timeOut:1000,
+    lastOnBottom: true
   }
 
 }

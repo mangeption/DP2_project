@@ -18,6 +18,8 @@ import { SaleWeekComponent } from './sale-week/sale-week.component';
 import {SalesGraphComponent} from './sales-graph/sales-graph.component';
 import {ChartsModule} from 'ng2-charts';
 import { TestComponentComponent } from './test-component/test-component.component';
+import { SimpleNotificationsModule} from 'angular2-notifications';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { TestComponentComponent } from './test-component/test-component.componen
     TestComponentComponent
   ],
   imports: [
-    BrowserModule, HttpModule, FormsModule, AppRoutingModule, ChartsModule
+    BrowserModule, HttpModule, FormsModule, AppRoutingModule, ChartsModule,
+    BrowserAnimationsModule,
+    SimpleNotificationsModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
