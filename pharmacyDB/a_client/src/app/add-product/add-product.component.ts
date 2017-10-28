@@ -30,7 +30,7 @@ export class AddProductComponent implements OnInit {
     if (!this.id || !this.name || !this.price || !this.stock)
     {
       const toast = this.notiService.error('Invalid input', 'You must enter all fields', {
-        timeOut: 1000,
+        timeOut: 10000,
         showProgressBar: true,
         pauseOnHover:false,
         clickToClose: true

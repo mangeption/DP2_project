@@ -17,6 +17,7 @@ import {NotificationsService} from 'angular2-notifications';
 export class AddSaleComponent implements OnInit {
   id : number;
   prodId: number;
+  prod_Id: string;
   date: Date;
   qty: number;
   stock: number;
@@ -40,7 +41,7 @@ export class AddSaleComponent implements OnInit {
     if (!newSale.id || !newSale.date || !newSale.qty)
     {
       const toast = this.notiService.error("Invalid Input", "You must fill all inputs", {
-        timeOut: 1000,
+        timeOut: 10000,
         showProgressBar: true,
         pauseOnHover:false,
         clickToClose: true
@@ -51,12 +52,12 @@ export class AddSaleComponent implements OnInit {
       this.saleService.addSale(newSale).subscribe(() => {
         
           });
-          this.modifyProduct(this.prodId, this.stock);
+          this.modifyProduct(this.prod_Id, this.stock);
     }
     else
     {
       const toast = this.notiService.error("Invalid Input", "Your date is in wrong pattern", {
-        timeOut: 1000,
+        timeOut: 10000,
         showProgressBar: true,
         pauseOnHover:false,
         clickToClose: true
@@ -69,10 +70,11 @@ export class AddSaleComponent implements OnInit {
     return this.showtheform;
   }
 
-  reverseShowTheForm(productID,stock)
+  reverseShowTheForm(product_ID, productID,stock)
   {
     this.showtheform = !this.showtheform;
     this.prodId = productID;
+    this.prod_Id = product_ID;
     this.stock = stock;
   }
 

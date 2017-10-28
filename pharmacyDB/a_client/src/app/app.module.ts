@@ -20,6 +20,7 @@ import {ChartsModule} from 'ng2-charts';
 import { TestComponentComponent } from './test-component/test-component.component';
 import { SimpleNotificationsModule} from 'angular2-notifications';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {JasperoAlertsModule} from '@jaspero/ng2-alerts';
 
 @NgModule({
   declarations: [
@@ -34,11 +35,12 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     SaleMonthComponent,
     SaleWeekComponent,
     SalesGraphComponent,
-    TestComponentComponent
+    TestComponentComponent,
   ],
   imports: [
     BrowserModule, HttpModule, FormsModule, AppRoutingModule, ChartsModule,
     BrowserAnimationsModule,
+    JasperoAlertsModule,
     SimpleNotificationsModule.forRoot()
   ],
   providers: [],

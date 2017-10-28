@@ -8,7 +8,7 @@
             <th>PRODUCT ID</th>
             <th>DATE</th>
             <th>QTY</th>
-            <th></th>
+            <th>DEL</th>
         </tr>
     </thead>
     <tbody>
@@ -26,7 +26,7 @@
               {{sale.qty}}
             </td>
             <td class = "col-md-3">
-                <button (click) = "deleteSale(sale.id, sale.prodId, sale.qty)" class = "btn btn-danger">Del</button>
+                <button (click) = "deleteSale(sale._id, sale.prodId, sale.qty)" class = "btn btn-danger">Del</button>
             </td>
         </tr>
     </tbody>

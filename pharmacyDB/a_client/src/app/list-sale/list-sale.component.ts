@@ -10,7 +10,7 @@ import {ProductsService} from '../products.service'
   providers: [SaleService, ProductsService]
 })
 export class ListSaleComponent implements OnInit {
-
+  products: Products[];
   sales: Sales[];
   productChosen: Products;
   
@@ -18,15 +18,20 @@ export class ListSaleComponent implements OnInit {
   
     ngOnInit() {
       this.salesService.getSales().subscribe(sales => this.sales = sales);
+      this.productService.getProducts().subscribe(products => this.products = products);
     }
    
     deleteSale(id:any, prodId, qty:number){
       var sales = this.sales;
-      this.productService.getProductId(prodId).subscribe(product => this.productChosen = product);
+      for (var i = 0; i < this.products.length; i++)
+      {
+        if (this.products[i].id == prodId)
+          this.productChosen = this.products[i];
+      }
       this.salesService.deleteSale(id).subscribe(data=>{
           for(var i=0; i< sales.length; i++)
           {
-            if(sales[i].id == id)
+            if(sales[i]._id == id)
             {
               //console.log("true");
               this.EditProduct(this.productChosen, qty);
@@ -39,7 +44,7 @@ export class ListSaleComponent implements OnInit {
     EditProduct(product, quantity)
     {
       const selProduct={
-        id: product.id,
+        id: product._id,
         stock: product.stock + quantity
       }
       this.productService.editProduct(selProduct.id, selProduct).subscribe(product => {

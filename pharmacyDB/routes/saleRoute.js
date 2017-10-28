@@ -13,6 +13,15 @@ router.get('/sales', function(req, res, next){
         res.json(s)
     });
 });
+//Get all sales with product Id
+router.get('/sales/:productId', function(req, res, next){
+    Sales.find({prodId: req.params.productId}, function(err, s){
+        if (err)
+            res.json(err);
+        else
+            res.json(s);
+    });
+});
 //Add new sale
 router.post('/addSale', function(req, res, next){
     let newSale = new Sales({
