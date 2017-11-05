@@ -13,6 +13,15 @@ router.get('/sales', function(req, res, next){
         res.json(s)
     });
 });
+//Get all sales with product Id
+router.get('/sales/:productId', function(req, res, next){
+    Sales.find({prodId: req.params.productId}, function(err, s){
+        if (err)
+            res.json(err);
+        else
+            res.json(s);
+    });
+});
 //Add new sale
 router.post('/addSale', function(req, res, next){
     let newSale = new Sales({
@@ -37,7 +46,7 @@ router.put('/editSale/:id', function(req, res, next){
         qty: req.body.qty,
         date: req.body.date,
     });
-    Sales.findOne({id: req.params.id}, function(err, foundObject){
+    Sales.findOne({_id: req.params.id}, function(err, foundObject){
         if(err){
             res.json(err);
         }else{
@@ -66,7 +75,7 @@ router.put('/editSale/:id', function(req, res, next){
 });
 // Delete product by id
 router.delete('/delSale/:id', function(req, res, next){
-    Sales.remove({id: req.params.id}, function(err, result){
+    Sales.remove({_id: req.params.id}, function(err, result){
         if(err){
             res.json(err);
         }else{

@@ -11,6 +11,11 @@ export class SaleService {
   getSales(){
     return this.http.get('http://localhost:3000/s/sales').map(res => res.json());
   }
+
+  getSalesProductId(productId){
+    return this.http.get('http://localhost:3000/s/sales/' + productId).map(res => res.json());
+  }
+
   addSale(newSale){
     var headers = new Headers();
     headers.append('Content-Type', 'application/json');

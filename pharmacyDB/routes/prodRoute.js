@@ -15,7 +15,7 @@ router.get('/products', function(req, res, next){
 });
 //Get a product by id
 router.get('/products/:id', function(req,res,next){
-    Products.findOne({id: req.params.id}, function(err, foundProduct){
+    Products.findOne({_id: req.params.id}, function(err, foundProduct){
         if (err)
             res.json(err);
         else
@@ -46,7 +46,7 @@ router.put('/editProduct/:id', function(req, res, next){
         price: req.body.price,
         stock: req.body.stock
     });
-    Products.findOne({id: req.params.id}, function(err, foundObject){
+    Products.findOne({_id: req.params.id}, function(err, foundObject){
         if(err){
             res.json(err);
         }else{
@@ -73,7 +73,7 @@ router.put('/editProduct/:id', function(req, res, next){
 });
 // Delete product by id
 router.delete('/delProduct/:id', function(req, res, next){
-    Products.remove({id: req.params.id}, function(err, result){
+    Products.remove({_id: req.params.id}, function(err, result){
         if(err){
             res.json(err);
         }else{

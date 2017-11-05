@@ -10,12 +10,12 @@ import { ListSaleComponent } from './list-sale/list-sale.component';
 import { SaleMonthComponent } from './sale-month/sale-month.component';
 import { SaleWeekComponent} from './sale-week/sale-week.component';
 import { SalesGraphComponent} from './sales-graph/sales-graph.component';
-// import { TestComponentComponent} from './test-component/test-component.component';
+import { TestComponentComponent} from './test-component/test-component.component';
 const routes: Routes = [
     {path: '', redirectTo: './app', pathMatch: 'full'},
     {path: 'add-product/add-product', component: AddProductComponent},
     {path: 'list-products/list-products', component: ListProductsComponent},
-    {path: 'edit-product/edit-product/:id', component: EditProductComponent},
+    {path: 'edit-product/edit-product/:id/:_id', component: EditProductComponent},
     {path: 'add-sale/add-sale', component: AddSaleComponent},
     {path: 'list-sale/list-sale', component: ListSaleComponent,
         children: [
@@ -24,9 +24,9 @@ const routes: Routes = [
             {path: 'week', component: SaleWeekComponent}
         ]
     },
-    {path: 'edit-sale/edit-sale/:id', component: EditSaleComponent},
-    {path: 'sales-graph/sales-graph', component: SalesGraphComponent}
-    // {path: 'test/test', component:TestComponentComponent}
+    {path: 'edit-sale/edit-sale/:id/:_id', component: EditSaleComponent},
+    {path: 'sales-graph/sales-graph', component: SalesGraphComponent},
+    {path: 'test/test', component:TestComponentComponent}
 ];
 
 @NgModule({
